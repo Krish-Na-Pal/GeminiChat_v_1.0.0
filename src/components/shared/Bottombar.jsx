@@ -19,8 +19,9 @@ const Bottombar = (props) => {
   })
   
   useEffect(() => {
-    props.onAdd(output);
-    console.log(output)
+    if(output.answer != ''){
+      props.onAdd(output);
+    }
   },[output.answer])
   
   const [loading, setLoading] = useState(false);

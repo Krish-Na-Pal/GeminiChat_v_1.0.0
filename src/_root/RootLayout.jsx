@@ -20,8 +20,14 @@ export const RootLayout = () => {
       <Topbar />
       
       <section className='flex flex-1 h-3/4'>
-      <div className='mt-20 p-10'>
-            {answers.map((answerItem, index) => {
+      <div className='mt-20 p-10  w-full'>
+            {answers.length == 0?
+            <>
+              <h1 className='h1-bold grid justify-items-center'>How can i help you?</h1>
+              <h1 className=' text-lg font-semibold grid justify-items-center'>This is just tryle version...</h1>
+            </>
+            :
+            answers.map((answerItem, index) => {
               return (
                 <AnsCard 
                   key={index}

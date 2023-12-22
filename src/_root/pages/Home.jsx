@@ -4,6 +4,7 @@ const Home = (props) => {
   return (
     <>
     <div className='mt-20 p-10'>
+    
             {props.map((answerItem, index) => {
               return (
                 <AnsCard 
