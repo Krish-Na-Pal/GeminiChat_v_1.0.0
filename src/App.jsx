@@ -5,7 +5,7 @@ import { RootLayout } from './_root/RootLayout'
 export const App = () => {
 
   return (
-    <main className='flex h-screen bg-zinc-900'>
+    <main>
       <Routes>
         {/*public routes*/}
         <Route index element={<RootLayout/>}>

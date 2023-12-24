@@ -57,7 +57,6 @@ const Bottombar = (props) => {
     
     await fetchAnswer(promptValue);
     
-    
     setLoading(false);
 
   }
@@ -65,12 +64,12 @@ const Bottombar = (props) => {
   return (
     <section className='bottombar'>
       
-      <div className='w-full flex-between py-1 px-5 font-bold'>
+      <div className='w-full flex-between font-bold'>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="w-full m-5 flex gap-4"
+          className="w-full flex  "
         >
           <input 
             type='text'
@@ -78,18 +77,19 @@ const Bottombar = (props) => {
             value={form.name}
             onChange={handleChange}
             placeholder='Enter prompt here...'
-            className="bg-tertiary w-full py-0 px-10 placeholder:text-neutral-700 text-neutral-950 text-xl rounded-lg outline-none border-none font-medium"
+            autoComplete="off"
+            className="bg-tertiary w-full py-0 px-5 bg-transparent placeholder:text-neutral-700 text-xl rounded-lg outline-none border-none font-medium"
           />
           <button
             type='submit'
-            className="bg-tertiary py-4 px-4 outline-none w-fit font-bold shadow-primary rounded-full bg-white"
+            className="bg-tertiary flex justify-center items-center h-12 w-12 rounded-md m-2 bg-opacity-25 bg-white"
           >
             {loading ? 
-              <LucideLoader className='h-10 w-10 text-slate-950'/>:
+              <LucideLoader className='text-slate-950'/>:
               <img 
                 src='/assets/images/send.png'
-                className='h-15 w-15'
               />
+              
             }
           </button>
         </form>
