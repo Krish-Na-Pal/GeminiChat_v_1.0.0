@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { LucideLoader } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GOOGLE_GEMINI_API_KEY);
 
@@ -36,15 +37,19 @@ const Bottombar = (props) => {
   }
 
   async function fetchAnswer (e){
-    const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+    try {  
+      const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-    const result = await model.generateContent(e);
-    const response = result.response;
-    const ans = response.text();
-    setOutput({
-      ...output,
-      answer: ans,
-    })
+      const result = await model.generateContent(e);
+      const response = result.response;
+      const ans = response.text();
+      setOutput({
+        ...output,
+        answer: ans,
+      })
+    } catch (error) {
+      toast.error("Try another promp.");
+    }
   }
 
 
