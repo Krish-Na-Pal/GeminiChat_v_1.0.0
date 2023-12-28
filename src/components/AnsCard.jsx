@@ -5,7 +5,7 @@ const AnsCard = (props) => {
 
   return (
     <>
-      <div className='p-5 flex bg-cyan-700 rounded-md'>
+      <div className='p-3 flex bg-cyan-700 rounded-md'>
         <h1 className="font-bold text-xl">{props.prompt}</h1>
       </div>
       <div className="p-3 overflow-y-auto">

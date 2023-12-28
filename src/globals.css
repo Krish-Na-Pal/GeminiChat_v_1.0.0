@@ -242,7 +242,7 @@
 
   /* Bottombar */
   .bottombar {
-    @apply h-auto fixed w-7/12 bottom-8 z-50 border-2 rounded-lg bg-neutral-900;
+    @apply h-auto fixed md:w-7/12 w-11/12 bottom-8 z-50 border-2 rounded-lg bg-neutral-900;
   }
   /* User card */
   .user-card {

@@ -17,8 +17,8 @@ export const RootLayout = () => {
   return (
     <div className='grid'>
       <Topbar />
-      <div className='w-full grid justify-items-center'>
-        <div className='mt-20 w-7/12'>
+      <div className='w-full grid justify-items-center pb-20'>
+        <div className='mt-20 md:w-7/12 w-11/12'>
               {answers.length == 0?
               <div className='mt-32'>
                 <h1 className='h1-bold grid justify-items-center'>How can i help you?</h1>
