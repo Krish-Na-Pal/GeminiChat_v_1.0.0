@@ -1,11 +1,28 @@
-import Reactm, {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Topbar from '../components/shared/Topbar'
 import Bottombar from '../components/shared/Bottombar'
 import AnsCard from '../components/AnsCard'
-
+import { useNavigate } from 'react-router-dom'
+import { decodeToken } from 'react-jwt'
 
 export const RootLayout = () => {
+  // const [prompt, setPrompt] = useState();
   const [answers, setAnswers] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if(token){
+      const user = decodeToken(token);
+      if(!user){
+        localStorage.removeItem('token');
+        navigate('/sign-in');
+      }
+    }else{
+      navigate('/sign-in')
+    }
+  },[])
 
   const addAns = (newAnswer) => {
     setAnswers(prevAnswers => {
