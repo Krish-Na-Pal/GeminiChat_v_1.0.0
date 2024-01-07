@@ -5,11 +5,12 @@ import { useNavigate } from 'react-router-dom';
 const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const isLoading = false;
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await fetch("https://geminichatserver.cyclic.app/api/login",{ 
         method: 'POST',
@@ -26,6 +27,7 @@ const Signin = () => {
 
       localStorage.setItem('token', data.user);
       toast.success("Login Successfull");
+      setIsLoading(false);
       navigate("/");
     } catch (e) {
       if(e.ServerError){
@@ -40,7 +42,7 @@ const Signin = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className=" w-7/12"
+        className="grid gap-2"
       >
         <input 
             type='email'
@@ -49,7 +51,7 @@ const Signin = () => {
             onChange={(e) => {setEmail(e.target.value)}}
             placeholder='Email'
             autoComplete="off"
-            className="bg-tertiary w-full py-0 px-5 bg-transparent placeholder:text-neutral-700 text-xl rounded-lg outline-none border-none font-medium"
+            className="p-1 rounded-sm bg-neutral-700"
             required
           />
         <input 
@@ -60,13 +62,13 @@ const Signin = () => {
             placeholder='Password'
             autoComplete="off"
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-            className="bg-tertiary w-full py-0 px-5 bg-transparent placeholder:text-neutral-700 text-xl rounded-lg outline-none border-none font-medium"
+            className="p-1 rounded-sm bg-neutral-700"
             title="Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one digit."
             required
           />
           <button
             type='submit'
-            className="bg-tertiary flex justify-center items-center w-full rounded-md m-2 bg-opacity-25 bg-white"
+            className=" bg-slate-600 p-1 rounded-sm hover:bg-slate-800"
           >
             {isLoading ? 
               <p>Loading...</p>:

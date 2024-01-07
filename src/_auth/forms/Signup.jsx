@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -12,9 +13,10 @@ const Signup = () => {
   //Submit handler
   const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         try {
-          const response = await fetch("https://geminichatserver.cyclic.app/api/register",{
+          const response = await fetch("http://localhost:3001/api/register",{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -32,19 +34,19 @@ const Signup = () => {
           if(!data) throw Error;
 
           toast.success("User registered");
+          setIsLoading(false)
           navigate("/sign-in")
         } catch (error) {
           toast.error("server not responding...");
         }
   }
 
-    const isLoading = false;
   return (
     <> 
         <form
         //   ref={formRef}
           onSubmit={handleSubmit}
-          className=" w-7/12"
+          className="grid gap-2"
         >
           <input 
             type='text'
@@ -53,7 +55,7 @@ const Signup = () => {
             onChange={(e) => {setName(e.target.value)}}
             placeholder='Name'
             autoComplete="off"
-            className="bg-tertiary w-full py-0 px-5 bg-transparent placeholder:text-neutral-700 text-xl rounded-lg outline-none border-none font-medium"
+            className="p-1 rounded-sm bg-neutral-700"
             required
           />
           <input 
@@ -63,7 +65,7 @@ const Signup = () => {
             onChange={(e) => {setUsername(e.target.value)}}
             placeholder='Username'
             autoComplete="off"
-            className="bg-tertiary w-full py-0 px-5 bg-transparent placeholder:text-neutral-700 text-xl rounded-lg outline-none border-none font-medium"
+            className="p-1 rounded-sm bg-neutral-700"
             required
           />
           <input 
@@ -73,7 +75,7 @@ const Signup = () => {
             onChange={(e) => {setEmail(e.target.value)}}
             placeholder='Email'
             autoComplete="off"
-            className="bg-tertiary w-full py-0 px-5 bg-transparent placeholder:text-neutral-700 text-xl rounded-lg outline-none border-none font-medium"
+            className="p-1 rounded-sm bg-neutral-700"
             required
           />
           <input 
@@ -84,18 +86,17 @@ const Signup = () => {
             placeholder='Password'
             autoComplete="off"
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-            className="bg-tertiary w-full py-0 px-5 bg-transparent placeholder:text-neutral-700 text-xl rounded-lg outline-none border-none font-medium"
+            className="p-1 rounded-sm bg-neutral-700"
             title="Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one digit."
             required
           />
           <button
             type='submit'
-            className="bg-tertiary flex justify-center items-center w-full rounded-md m-2 bg-opacity-25 bg-white"
+            className="bg-slate-600 p-1 rounded-sm hover:bg-slate-800"
           >
             {isLoading ? 
               <p>Loading...</p>:
-              <p>Sign Up</p>
-              
+              <p>Sign Up</p>   
             }
           </button>
         </form>

@@ -58,7 +58,6 @@ const Bottombar = (props) => {
     setLoading(true);
     
     const promptValue = e.target.prompt.value;
-    console.log(promptValue);
     
     await fetchAnswer(promptValue);
     
