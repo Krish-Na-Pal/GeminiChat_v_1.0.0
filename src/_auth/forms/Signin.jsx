@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Signin = () => {
   const [email, setEmail] = useState('');
@@ -39,7 +40,7 @@ const Signin = () => {
   }
 
   return (
-    <>
+    <div className=' grid gap-5'>
       <form
         onSubmit={handleSubmit}
         className="grid gap-2"
@@ -77,7 +78,11 @@ const Signin = () => {
             }
           </button>
       </form>
-    </>
+        <div className='flex'>
+          <p className=' text-sm font-mono'>Doesn't have account?|</p>
+          <Link  to="/sign-up" className=' text-sm font-mono font-bold hover:text-violet-400'>sign-up</Link>
+        </div>
+    </div>
   )
 }
 

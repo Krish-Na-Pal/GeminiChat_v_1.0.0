@@ -16,7 +16,7 @@ const AuthLayout = () => {
                         <Outlet />
                       </div>
                     </div>
-                    <div>
+                    <div className="invisible w-0 sm:visible sm:w-auto">
                       <img 
                         src="/assets/images/logo.svg" 
                         alt="logo"

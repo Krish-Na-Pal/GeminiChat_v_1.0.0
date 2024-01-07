@@ -1,6 +1,6 @@
 import React, { useState } from 'react' 
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +42,7 @@ const Signup = () => {
   }
 
   return (
-    <> 
+    <div className='grid gap-5'> 
         <form
         //   ref={formRef}
           onSubmit={handleSubmit}
@@ -100,7 +100,12 @@ const Signup = () => {
             }
           </button>
         </form>
-    </>
+        
+        <div className='flex'>
+          <p className=' text-sm font-mono'>Already have account?|</p>
+          <Link  to="/sign-in" className=' text-sm font-mono font-bold hover:text-violet-400'>sign-in</Link>
+        </div>
+    </div>
   )
 }
 
