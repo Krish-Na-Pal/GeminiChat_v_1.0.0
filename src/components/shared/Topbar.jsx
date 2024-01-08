@@ -8,6 +8,7 @@ const Topbar = ({props}) => {
   return (
     <section className='topbar'>
         <div className='flex-between py-0 px-5 bg-white font-bold'>
+        <div className='flex items-center gap-2'>
             <Link to="/" className="flex gap-0 items-center">
                  <img 
                     src="/assets/images/logo.png"
@@ -17,9 +18,11 @@ const Topbar = ({props}) => {
                 />
                 <p className='text-4xl text-black h1-semibold'>GeminiChat</p>
             </Link>
+            <p className='text-zinc-600 gap-5 font-mono font-extralight'> ← Home</p>
+            </div>
             <div className='flex text-zinc-600 gap-5'>
-              <div className='flex'>
-                {profile}
+              <div className='flex gap-4'>
+                <p className=' font-mono font-extralight'>History → </p><Link to='/history'> {profile}</Link>
               </div>
               |
               <button 
