@@ -45,7 +45,7 @@ export const HistoryLayout = () => {
             }
         }
         fetchData();
-    }, [answers])
+    }, [])
 
 
     return (
