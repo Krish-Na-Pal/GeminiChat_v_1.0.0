@@ -45,7 +45,7 @@ export const HistoryLayout = () => {
             }
         }
         fetchData();
-    }, [answers])
+    }, [])
 
 
     return (
@@ -55,8 +55,8 @@ export const HistoryLayout = () => {
                 <div className='mt-20 md:w-7/12 w-11/12'>
                     {answers.length == 0 ?
                         <div className='mt-32'>
-                            <h1 className='h1-bold grid justify-items-center'>How can i help you?</h1>
-                            <h1 className='text-lg font-semibold grid justify-items-center'>This is just tryle version...</h1>
+                            <h1 className='h1-bold grid justify-items-center'>History?</h1>
+                            <h1 className='text-lg font-semibold grid justify-items-center'>This page is on building...</h1>
                             <div className='font-semibold grid justify-items-center'> <LucideMessageSquareOff /></div>
                         </div>
                         :
