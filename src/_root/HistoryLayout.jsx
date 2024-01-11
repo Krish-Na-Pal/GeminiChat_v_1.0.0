@@ -56,7 +56,7 @@ export const HistoryLayout = () => {
                     {answers.length == 0 ?
                         <div className='mt-32'>
                             <h1 className='h1-bold grid justify-items-center'>History?</h1>
-                            <h1 className='text-lg font-semibold grid justify-items-center'>This page is on building...</h1>
+                            <h1 className='text-lg font-semibold grid justify-items-center'>Working...</h1>
                             <div className='font-semibold grid justify-items-center'> <LucideMessageSquareOff /></div>
                         </div>
                         :
